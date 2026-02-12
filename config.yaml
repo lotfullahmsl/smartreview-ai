@@ -1,0 +1,30 @@
+# SmartReview AI Configuration
+# Central configuration for all pipeline components
+
+project:
+  name: "SmartReview AI Engine"
+  version: "1.0.0"
+  description: "Production-ready content moderation and sentiment analysis system"
+
+model:
+  base_model: "distilbert-base-uncased"
+  max_length: 128
+  batch_size: 16
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 500
+
+data:
+  profanity_dataset: "tarekziade/profanity"
+  reviews_dataset: "amazon_reviews_multi"
+  train_samples: 6000
+  language: "en"
+
+paths:
+  model_output: "./trained_models/smartreview-v1"
+  logs: "./logs"
+  cache: "./cache"
+
+inference:
+  confidence_threshold: 0.75
+  batch_size: 32
